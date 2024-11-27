@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Images</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>All Uploaded Images</h1>
+        <a href="{% url 'upload_image' %}" class="btn btn-secondary mb-3">Back</a>
+        <ul class="list-group">
+            {% for image in images %}
+                <li class="list-group-item">
+                    <a href="{% url 'view_image' id=image.id %}">
+                        <img src="{{ image.image.url }}" alt="Image" style="width: 100px; height: auto;">
+                    </a>
+                    <form method="POST" action="{% url 'delete_image' id=image.id %}" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </li>
+            {% empty %}
+                <li class="list-group-item">No images uploaded yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

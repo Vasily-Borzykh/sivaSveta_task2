@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Success</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Image Uploaded Successfully!</h1>
+        <!-- Используем image.id для формирования ссылки на страницу с изображением -->
+        <a href="{% url 'view_image' id=image.id %}" class="btn btn-success">View Image</a>
+    </div>
+</body>
+</html>

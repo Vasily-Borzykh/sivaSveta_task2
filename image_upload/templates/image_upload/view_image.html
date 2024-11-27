@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Image</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <a href="{% url 'upload_image' %}" class="btn btn-secondary mb-3">Back</a>
+    <img src="{{ image.image.url }}" alt="Image">
+</body>
+</html>
